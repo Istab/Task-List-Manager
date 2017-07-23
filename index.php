@@ -36,18 +36,31 @@ switch( $action ) {
             $task_list = array_values($task_list);
         }
         break;
-/*
     case 'Modify Task':
-    
+        $task_index = filter_input(INPUT_POST, 'taskid', FILTER_VALIDATE_INT);
+        if ($task_index === NULL || $task_index === FALSE) {
+            $errors[] = 'The task cannot be deleted.';
+        } else {
+            $task_to_modify = $task_list[$task_index];
+        }
+        break;
     case 'Save Changes':
-    
-    case 'Cancel Changes':
-    
+        $task_index = filter_input(INPUT_POST, 'modifiedtaskid', FILTER_VALIDATE_INT);
+        $task_name = filter_input(INPUT_POST, 'modifiedtask');
+        if ($task_index === NULL || $task_index === FALSE || empty($task_name)) {
+            $errors[] = 'The task changes cannot be saved.';
+        } else {
+            $task_list[$task_index] = $task_name;
+        }
+        break;
+/*
     case 'Promote Task':
         
     case 'Sort Tasks':
     
 */
+    case 'Cancel Changes':
+        // Nothing to do here, move on with life
 }
 
 include('task_list.php');
