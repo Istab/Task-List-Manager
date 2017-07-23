@@ -53,11 +53,20 @@ switch( $action ) {
             $task_list[$task_index] = $task_name;
         }
         break;
-/*
     case 'Promote Task':
-        
+        $task_index = filter_input(INPUT_POST, 'taskid', FILTER_VALIDATE_INT);
+        if ($task_index === NULL || $task_index === FALSE) {
+            $errors[] = 'The task cannot be promoted.';
+        } else if ($task_index === 0) {
+            $errors[] = 'This is already the first task in the list.';
+        } else {
+            $task = $task_list[ $task_index ];
+            $task_list[ $task_index ] = $task_list[ $task_index - 1 ];
+            $task_list[ $task_index - 1 ] = $task;
+        }
+        break;
+/*
     case 'Sort Tasks':
-    
 */
     case 'Cancel Changes':
         // Nothing to do here, move on with life
