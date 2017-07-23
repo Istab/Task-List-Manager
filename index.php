@@ -65,9 +65,8 @@ switch( $action ) {
             $task_list[ $task_index - 1 ] = $task;
         }
         break;
-/*
     case 'Sort Tasks':
-*/
+        sort($task_list);
     case 'Cancel Changes':
         // Nothing to do here, move on with life
 }
